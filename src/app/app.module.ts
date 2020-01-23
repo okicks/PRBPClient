@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { ThreadComponent } from './components/thread/thread.component';
 import { PostComponent } from './components/post/post.component';
 import { HomeComponent } from './components/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadComponent,
     PostComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
