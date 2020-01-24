@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MainService } from 'src/app/services/main.service';
+import { Thread } from 'src/app/models/Thread';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-thread',
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThreadComponent implements OnInit {
 
-  constructor() { }
+  categoryId: Number;
+  columnNames = ['name', 'created'];
+  dataSource: MatTableDataSource<Thread>;
+
+  constructor(private router: Router, private service: MainService) { }
 
   ngOnInit() {
+    var url = this.router.url;
+    this.categoryId = Number.parseInt(url.substring(url.lastIndexOf("category/") + 9, url.lastIndexOf("/")));
+
+    this.service.getThreads(this.categoryId).subscribe((data: Thread[]) => this.dataSource = new MatTableDataSource<Thread>(data));
   }
 
 }

@@ -1,1 +1,21 @@
-<p>post works!</p>
+<div>
+    <mat-table #table [dataSource]="dataSource">
+        <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+        <ng-container matColumnDef="content">
+            <mat-header-cell *matHeaderCellDef>Content</mat-header-cell>
+            <mat-cell *matCellDef="let post;">{{post.Content}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="created">
+            <mat-header-cell *matHeaderCellDef>Created</mat-header-cell>
+            <mat-cell *matCellDef="let post;">{{post.CreationDate}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="edited">
+            <mat-header-cell *matHeaderCellDef>Edited</mat-header-cell>
+            <mat-cell *matCellDef="let post;">{{post.Edited}}</mat-cell>
+        </ng-container>
+    </mat-table>
+</div>

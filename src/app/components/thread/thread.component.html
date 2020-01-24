@@ -1,1 +1,16 @@
-<p>thread works!</p>
+<div>
+    <mat-table #table [dataSource]="dataSource">
+        <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let thread;"><a [routerLink]="[thread.Id, 'post']">{{thread.Name}}</a></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="created">
+            <mat-header-cell *matHeaderCellDef>Created</mat-header-cell>
+            <mat-cell *matCellDef="let thread;">{{thread.CreationDate}}</mat-cell>
+        </ng-container>
+    </mat-table>
+</div>

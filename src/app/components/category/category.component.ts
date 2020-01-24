@@ -12,7 +12,6 @@ export class CategoryComponent implements OnInit {
 
   columnNames = ['name'];
   dataSource: MatTableDataSource<Category>;
-  categories: Category[];
 
   constructor(private service: MainService) { }
 
