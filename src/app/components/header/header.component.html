@@ -1,6 +1,7 @@
 <mat-toolbar color="primary">
     <span><a id="title" [routerLink]="['/']">Kicks Forums</a></span>
     <span class="flex-filler"></span>
-    <button mat-raised-button [routerLink]="['/register']" class="nav-btn">Register</button>
-    <button mat-raised-button [routerLink]="['/login']" class="nav-btn">Login</button>
+    <button mat-raised-button [routerLink]="['/register']" *ngIf="this.regShow" class="nav-btn">Register</button>
+    <button mat-raised-button [routerLink]="['/login']" *ngIf="this.loginShow" class="nav-btn">Login</button>
+    <button mat-raised-button *ngIf="this.logoutShow" class="nav-btn" (click)="logout()">Logout</button>
 </mat-toolbar>

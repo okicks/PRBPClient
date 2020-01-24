@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { checkServerIdentity } from 'tls';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  regShow;
+  loginShow;
+  logoutShow;
+
+  constructor(private authService: AuthService)
+  {
+    authService.getLoggedIn.subscribe(e => this.ngOnInit());
+  }
 
   ngOnInit() {
+    if(!localStorage.getItem('id_token')) {
+      this.regShow = true;
+      this.loginShow = true;
+      this.logoutShow = false;
+    }
+    else{
+      this.regShow = false;
+      this.loginShow = false;
+      this.logoutShow = true;
+    }
+  }
+
+  logout() {
+    this.authService.logout();
+    this.ngOnInit();
   }
 
 }

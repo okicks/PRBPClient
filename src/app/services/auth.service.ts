@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { RegisterUser } from '../models/RegisterUser'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { Token } from '../models/Token';
 import { Router } from '@angular/router';
+import { EventEmitter } from '@angular/core';
 
 const Api_Url = 'https://localhost:44327';
 
@@ -11,6 +12,8 @@ const Api_Url = 'https://localhost:44327';
   providedIn: 'root'
 })
 export class AuthService {
+  @Output() getLoggedIn: EventEmitter<any> = new EventEmitter();
+
   userInfo: Token;
   isLoggedIn = new Subject<boolean>();
 
@@ -27,7 +30,8 @@ export class AuthService {
     return this.http.post(`${Api_Url}/token`, authString).subscribe((token: Token) => {
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn.next(true);
-      this.router.navigate(['/notes']);
+      this.getLoggedIn.emit("true");
+      this.router.navigate(['forum/category']);
     });
   }
   
@@ -44,6 +48,7 @@ export class AuthService {
     this.isLoggedIn.next(false);
 
     this.http.post(`${Api_Url}/api/Account/Logout`, { headers: this.setHeaders() });
+    this.getLoggedIn.emit("false");
     this.router.navigate(['/login']);
   }
 
