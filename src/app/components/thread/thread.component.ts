@@ -35,5 +35,4 @@ export class ThreadComponent implements OnInit {
   delete(threadId){
     this.service.deleteThread(threadId).subscribe(() => location.reload());
   }
-
 }

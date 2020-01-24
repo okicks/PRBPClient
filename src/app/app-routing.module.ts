@@ -29,7 +29,7 @@ const routes: Routes =
       { path: 'category', component: CategoryComponent },
       { path: 'category/create', component: CategoryCreateComponent },
       { path: 'category/delete', component: CategoryDeleteComponent },
-      { path: 'category/edit', component: CategoryEditComponent },
+      { path: 'category/edit/:id', component: CategoryEditComponent },
 
       { path: 'thread/:catId', component: ThreadComponent },
       { path: 'thread/create/:catId', component: ThreadCreateComponent },

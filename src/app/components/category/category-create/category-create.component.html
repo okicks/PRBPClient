@@ -1,1 +1,18 @@
-<p>category-create works!</p>
+<h2>Create Category</h2>
+
+<br/>
+<hr/>
+<br/>
+<br/>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="categoryCreateForm">
+    <div>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Name your category:" formControlName="name" type="name" required />
+            </mat-form-field>
+        </div>
+    </div>
+
+    <button mat-raised-button class="nav-btn" color="primary" type="submit">Submit</button>
+</form>

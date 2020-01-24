@@ -1,1 +1,18 @@
-<p>category-edit works!</p>
+<h2>Edit Category</h2>
+
+<br/>
+<hr/>
+<br/>
+<br/>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="categoryEditForm">
+    <div>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Edit your category's name:" formControlName="name" type="name" [(ngModel)]="text" required />
+            </mat-form-field>
+        </div>
+    </div>
+
+    <button mat-raised-button class="nav-btn" color="primary" type="submit">Submit</button>
+</form>
