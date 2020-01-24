@@ -24,9 +24,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CategoryComponent } from './components/category/category.component';
-import { CreateComponent } from './components/category/create/create.component';
-import { DeleteComponent } from './components/category/delete/delete.component';
-import { EditComponent } from './components/category/edit/edit.component';
+import { PostCreateComponent } from './components/post/post-create/post-create.component';
+import { PostDeleteComponent } from './components/post/post-delete/post-delete.component';
+import { PostEditComponent } from './components/post/post-edit/post-edit.component';
+import { CategoryCreateComponent } from './components/category/category-create/category-create.component';
+import { CategoryDeleteComponent } from './components/category/category-delete/category-delete.component';
+import { CategoryEditComponent } from './components/category/category-edit/category-edit.component';
+import { ThreadCreateComponent } from './components/thread/thread-create/thread-create.component';
+import { ThreadDeleteComponent } from './components/thread/thread-delete/thread-delete.component';
+import { ThreadEditComponent } from './components/thread/thread-edit/thread-edit.component';
 
 @NgModule({
   declarations: [
@@ -38,9 +44,15 @@ import { EditComponent } from './components/category/edit/edit.component';
     LoginComponent,
     RegisterComponent,
     CategoryComponent,
-    CreateComponent,
-    DeleteComponent,
-    EditComponent,
+    PostCreateComponent,
+    PostDeleteComponent,
+    PostEditComponent,
+    CategoryCreateComponent,
+    CategoryDeleteComponent,
+    CategoryEditComponent,
+    ThreadCreateComponent,
+    ThreadDeleteComponent,
+    ThreadEditComponent,
   ],
   imports: [
     BrowserModule,
