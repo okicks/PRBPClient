@@ -25,11 +25,11 @@ export class PostComponent implements OnInit {
   }
 
   reply() {
-    this.router.navigate(['forum/post/create', this.threadId]);
+    this.router.navigate(['/forum/post/create', this.threadId]);
   }
 
   edit(postId){
-    this.router.navigate(['forum/post/edit', this.threadId, postId]);
+    this.router.navigate(['/forum/post/edit', this.threadId, postId]);
   }
 
   delete(postId){

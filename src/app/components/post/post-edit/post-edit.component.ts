@@ -35,5 +35,4 @@ export class PostEditComponent implements OnInit {
    this.postEditForm.setValue({content: this.text, id: id});
     this.service.editPost(this.postEditForm.value).subscribe(() => this.router.navigate(['/forum/post', threadId]));
   }
-
 }

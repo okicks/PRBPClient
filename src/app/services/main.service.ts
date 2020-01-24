@@ -31,11 +31,11 @@ export class MainService {
   }
 
   public createThread(pram) {
-    return this.http.post(`${Api_Url}/Post`, pram, { headers: this.getHeaders() });
+    return this.http.post(`${Api_Url}/Thread`, pram, { headers: this.getHeaders() });
   }
 
   public editThread(pram) {
-    return this.http.put(`${Api_Url}/Post`, pram, { headers: this.getHeaders() });
+    return this.http.put(`${Api_Url}/Thread`, pram, { headers: this.getHeaders() });
   }
 
   public deleteThread(pram) {

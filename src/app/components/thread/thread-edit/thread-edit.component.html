@@ -1,1 +1,11 @@
-<p>thread-edit works!</p>
+<form (ngSubmit)="onSubmit()" [formGroup]="threadEditForm">
+    <div>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Edit your thread's name:" formControlName="name" type="name" [(ngModel)]="text" required />
+            </mat-form-field>
+        </div>
+    </div>
+
+    <button mat-raised-button class="nav-btn" color="primary" type="submit">Submit</button>
+</form>

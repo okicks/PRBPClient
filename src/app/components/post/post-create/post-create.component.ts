@@ -35,5 +35,4 @@ export class PostCreateComponent implements OnInit {
    this.postCreateForm.setValue({content: this.text, threadId: id});
     this.service.createPost(this.postCreateForm.value).subscribe(() => this.router.navigate(['/forum/post', id]));
   }
-
 }
