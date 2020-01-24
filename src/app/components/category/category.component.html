@@ -1,3 +1,13 @@
 <button mat-raised-button>Create Category</button>
 
+<div>
+    <mat-table #table [dataSource]="dataSource">
+        <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let category;">{{category.Name}}</mat-cell>
+        </ng-container>
+    </mat-table>
+</div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material';
+import { Category } from 'src/app/models/Category';
+import { MainService } from 'src/app/services/main.service';
 
 @Component({
   selector: 'app-category',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor() { }
+  columnNames = ['name'];
+  dataSource: MatTableDataSource<Category>;
+  categories: Category[];
+
+  constructor(private service: MainService) { }
 
   ngOnInit() {
+    this.service.getCategories().subscribe((data: Category[]) => this.dataSource = new MatTableDataSource<Category>(data));
   }
 
 }
