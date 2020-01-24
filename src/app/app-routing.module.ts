@@ -33,13 +33,13 @@ const routes: Routes =
 
       { path: 'thread/:catId', component: ThreadComponent },
       { path: 'thread/create/:catId', component: ThreadCreateComponent },
-      { path: 'thread/delete/:Id', component: ThreadDeleteComponent },
-      { path: 'thread/edit/:Id', component: ThreadEditComponent },
+      { path: 'thread/delete/:id', component: ThreadDeleteComponent },
+      { path: 'thread/edit/:catId/:id', component: ThreadEditComponent },
 
       { path: 'post/:thrId', component: PostComponent },
       { path: 'post/create/:thrId', component: PostCreateComponent },
-      { path: 'post/delete/:Id', component: PostDeleteComponent },
-      { path: 'post/edit/:Id', component: PostEditComponent },
+      { path: 'post/delete/:id', component: PostDeleteComponent },
+      { path: 'post/edit/:thrId/:id', component: PostEditComponent },
     ] 
   },
   

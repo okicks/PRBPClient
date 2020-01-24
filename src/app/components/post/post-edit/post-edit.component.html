@@ -1,1 +1,11 @@
-<p>post-edit works!</p>
+<form (ngSubmit)="onSubmit()" [formGroup]="postEditForm">
+    <div>
+        <div>
+            <mat-form-field>
+                <textarea matInput placeholder="Edit your post:" formControlName="content" type="content" [(ngModel)]="text" required></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <button mat-raised-button class="nav-btn" color="primary" type="submit">Submit</button>
+</form>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
-import { Post } from 'src/app/models/Post';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
@@ -34,7 +33,7 @@ export class PostCreateComponent implements OnInit {
 
     
    this.postCreateForm.setValue({content: this.text, threadId: id});
-    this.service.createPost(this.postCreateForm.value).subscribe(() => this.router.navigate(['']));
+    this.service.createPost(this.postCreateForm.value).subscribe(() => this.router.navigate(['/forum/post', id]));
   }
 
 }

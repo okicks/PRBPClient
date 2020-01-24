@@ -29,12 +29,11 @@ export class PostComponent implements OnInit {
   }
 
   edit(postId){
-    this.router.navigate(['forum/post/edit', postId]);
+    this.router.navigate(['forum/post/edit', this.threadId, postId]);
   }
 
   delete(postId){
-    this.service.deletePost(postId).subscribe();
-    this.ngOnInit();
+    this.service.deletePost(postId).subscribe(() => location.reload());
   }
 
 }
