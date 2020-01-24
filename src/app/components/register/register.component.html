@@ -1,6 +1,10 @@
 <h1>Register</h1>
 <hr />
 
+<div class="errorBox">
+    {{error}}
+</div>
+
 <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <div>
         <div>

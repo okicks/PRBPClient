@@ -1,0 +1,8 @@
+.errorBox {
+    text-align: center;
+    font-size: large;
+    font-weight: bolder;
+    text-decoration: underline;
+    color: red;
+    background-color: wheat;
+}

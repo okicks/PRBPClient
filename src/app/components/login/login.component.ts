@@ -9,9 +9,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  error: String;
   loginForm: FormGroup;
 
   constructor(private form: FormBuilder, private authService: AuthService) {
+    authService.getError.subscribe(error => this.error = error.error_description);
     this.createForm();
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterComponent implements OnInit {
 
   private registerForm: FormGroup;
+  private error;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService) {
     this.createForm();
@@ -28,9 +30,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.registerForm.value);
     this.authService
       .register(this.registerForm.value)
-      .subscribe(() => this.authService.login(this.registerForm.value));
+      .subscribe(() => this.authService.login(this.registerForm.value),
+      error => this.error = JSON.stringify(error.error.ModelState));
   }
 }
