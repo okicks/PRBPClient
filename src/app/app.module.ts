@@ -24,6 +24,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CategoryComponent } from './components/category/category.component';
+import { CreateComponent } from './components/category/create/create.component';
+import { DeleteComponent } from './components/category/delete/delete.component';
+import { EditComponent } from './components/category/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { CategoryComponent } from './components/category/category.component';
     LoginComponent,
     RegisterComponent,
     CategoryComponent,
+    CreateComponent,
+    DeleteComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
