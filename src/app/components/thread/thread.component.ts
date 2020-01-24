@@ -19,7 +19,7 @@ export class ThreadComponent implements OnInit {
 
   ngOnInit() {
     var url = this.router.url;
-    this.categoryId = Number.parseInt(url.substring(url.lastIndexOf("category/") + 9, url.lastIndexOf("/")));
+    this.categoryId = Number.parseInt(url.substring(url.lastIndexOf("/") + 1, url.length));
 
     this.service.getThreads(this.categoryId).subscribe((data: Thread[]) => this.dataSource = new MatTableDataSource<Thread>(data));
   }

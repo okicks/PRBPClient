@@ -17,5 +17,17 @@
             <mat-header-cell *matHeaderCellDef>Edited</mat-header-cell>
             <mat-cell *matCellDef="let post;">{{post.Edited}}</mat-cell>
         </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let post;"><button mat-raised-button (click)="edit(post.Id)">Edit</button> <p></p> <button mat-raised-button (click)="delete(post.Id)">Delete</button></mat-cell>
+        </ng-container>
     </mat-table>
 </div>
+
+<br/>
+<br/>
+<hr/>
+<br/>
+
+<button mat-raised-button (click)="reply()" color="primary">Reply</button>

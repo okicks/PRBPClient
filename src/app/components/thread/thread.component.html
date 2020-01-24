@@ -5,7 +5,7 @@
 
         <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-            <mat-cell *matCellDef="let thread;"><a [routerLink]="[thread.Id, 'post']">{{thread.Name}}</a></mat-cell>
+            <mat-cell *matCellDef="let thread;"><a [routerLink]="['/forum/post', thread.Id]">{{thread.Name}}</a></mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="created">

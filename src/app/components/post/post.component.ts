@@ -12,16 +12,29 @@ import { MatTableDataSource } from '@angular/material';
 export class PostComponent implements OnInit {
 
   threadId: Number;
-  columnNames = ['content', 'created', 'edited'];
+  columnNames = ['content', 'created', 'edited', 'actions'];
   dataSource: MatTableDataSource<Post>;
 
   constructor(private router: Router, private service: MainService) { }
 
   ngOnInit() {
     var url = this.router.url;
-    this.threadId = Number.parseInt(url.substring(url.lastIndexOf("thread/") + 7, url.lastIndexOf("/")));
+    this.threadId = Number.parseInt(url.substring(url.lastIndexOf("/") + 1, url.length));
     
     this.service.getPosts(this.threadId).subscribe((data: Post[]) => this.dataSource = new MatTableDataSource<Post>(data));
+  }
+
+  reply() {
+    this.router.navigate(['forum/post/create', this.threadId]);
+  }
+
+  edit(postId){
+    this.router.navigate(['forum/post/edit', postId]);
+  }
+
+  delete(postId){
+    this.service.deletePost(postId).subscribe();
+    this.ngOnInit();
   }
 
 }
